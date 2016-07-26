@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="1df2097b-b5d7-4149-9867-2728e5fbd78c"
+  name="ModelingPaySlip" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="325d291a-3653-4138-a7ac-47501bd29f76">
+      <body>A link to encrypted zip file sent to user (ePortal)</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker
+          Id="d8f858e7-6c46-4db6-bd80-baabb871da43"
+          LastKnownName="ActivityFinal1"
+          LastKnownLocation="ModelingPaySlip.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="bff8b90e-f3d0-4067-960a-d7f721c647b3"
+        name="PaySlip"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <sendSignalAction
+            Id="276c6eab-68d4-4916-9511-ad7ec59d3495"
+            name="Print PaySlip"
+            isLeaf="false" />
+          <acceptEventAction
+            Id="4cec3737-a7da-46d8-837e-4fdd635f9142"
+            name="PaySlip Report Settings"
+            isLeaf="false"
+            isUnmarshall="false" />
+          <sendSignalAction
+            Id="f8095f51-cfe7-41ee-91af-91e6445bc56e"
+            name="Create HTML based on Current Schema (css dependent)"
+            isLeaf="false">
+            <pins>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="9ae870dc-abbc-4c76-83b9-6a42b0618a8b"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="bf354a11-cfa7-4b59-ba15-3b8b8dfb5f69"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="23dd61c2-ec6f-43f6-b6ad-ecb76be2d541"
+                        LastKnownName="Input1"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="79560acc-0ed2-47fc-bb85-353a279a2470"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="c206c755-8606-4e80-9d6c-b03bc2bb01b7"
+            name="Create PDF based on HTML (no password)"
+            isLeaf="false">
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin
+                  Id="23dd61c2-ec6f-43f6-b6ad-ecb76be2d541"
+                  name="Input1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="1a36a1da-df42-4e6e-83cb-eeb8cc1e6d22"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="06f5db40-5c98-49b7-bcbd-9991840d7d04"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="c575c080-84b7-40e9-a39b-127a2e1fe0fd"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="932c4534-4b83-4e03-834b-ba1cb57fe1e9"
+                        LastKnownName="Input1"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="dce7d6aa-ed7e-4c2c-b42d-ca1b6421a322"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="3109548c-e662-4314-973c-2c16d10e3d78"
+            name="Create zip file, add pdf file and encrypt using user password from HRMS DB"
+            isLeaf="false">
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin
+                  Id="932c4534-4b83-4e03-834b-ba1cb57fe1e9"
+                  name="Input1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="11f929de-baee-4dbc-86cc-6dddc41d881f"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="7960658c-6eb7-4f5e-8c60-3d15ae483f38"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="161808e7-bcda-48d0-9692-7245ccfeed26"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <activityFinalNodeMoniker
+                        Id="d8f858e7-6c46-4db6-bd80-baabb871da43"
+                        LastKnownName="ActivityFinal1"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="a6f2fe6e-1e38-424a-9cba-c36416096197"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="d8f858e7-6c46-4db6-bd80-baabb871da43"
+            name="ActivityFinal1"
+            isLeaf="false" />
+          <sendSignalAction
+            Id="a9419f32-c6bd-482d-8650-c0bbcb6d012f"
+            name="SSRS runs Subscription and creates PaySlip pdf Reports in Shared folder"
+            isLeaf="false" />
+          <acceptEventAction
+            Id="32ad9cf8-1709-40ad-aa47-9b27464747f1"
+            name="Windows Task Runs, creates encrypted zip files and email them"
+            isLeaf="false"
+            isUnmarshall="false" />
+          <sendSignalAction
+            Id="c6a01876-512e-463e-8b90-7274984648db"
+            name="Unencrypted PDF files deleted from Shared Folder and replaced with encrypted zip files"
+            isLeaf="false">
+            <pins>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="740a74da-1914-4279-8b69-42d4a554e3be"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="3de649db-8973-463a-9d53-d2ee4f9e0b43"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="85dc3bee-bbd6-4a31-ac8e-49db25b649cb"
+                        LastKnownName="Input1"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="3216a23b-fb99-4ef7-b1bd-81a303cd7fb4"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="eed3fd9a-94f5-4562-9ea9-87f06209fb82"
+            name="Encrypted zip file copied to HRMS WEB server"
+            isLeaf="false">
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin
+                  Id="85dc3bee-bbd6-4a31-ac8e-49db25b649cb"
+                  name="Input1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="5a1d3441-60f8-4cb0-a250-d04943e44734"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="01bd4380-45a8-44ac-b6c4-b8d75b240c95"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="3db5b191-dbbd-4356-9dc1-05eb62729f56"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <inputPinMoniker
+                        Id="4bc35623-3075-4898-8ea3-348e8d21437a"
+                        LastKnownName="Input1"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="53ffc076-05c3-4992-9d6f-ca2b3003ba13"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="fdbf0692-afd4-4b9b-8fd2-e31b30f7436c"
+            name="A link to encrypted zip file sent to user (ePortal)"
+            isLeaf="false">
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin
+                  Id="4bc35623-3075-4898-8ea3-348e8d21437a"
+                  name="Input1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <upperBound>
+                    <literalInteger
+                      Id="82b74d05-6230-4d41-bd09-f7208b3c22b4"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin
+                  Id="6dc81d0d-2aa9-4e59-b740-b3fc42091c33"
+                  name="Output1"
+                  isLeaf="false"
+                  ordering="Unordered"
+                  isControlType="false"
+                  isControl="false">
+                  <objectFlowTargets>
+                    <objectFlow
+                      Id="3b1a3f5a-7892-4eb0-9cf2-93175d1dea01"
+                      isLeaf="false"
+                      isMulticast="false"
+                      isMultireceive="false">
+                      <activityFinalNodeMoniker
+                        Id="3039ea62-ee7d-4e74-8748-4428a93ad1c1"
+                        LastKnownName="ActivityFinal11"
+                        LastKnownLocation="ModelingPaySlip.uml" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger
+                      Id="ccc6d4cc-5d0b-44cb-a480-aeb4e06098ee"
+                      name="2147483647"
+                      value="2147483647" />
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="3039ea62-ee7d-4e74-8748-4428a93ad1c1"
+            name="ActivityFinal11"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

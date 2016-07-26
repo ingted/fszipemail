@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="3947ea60-b6cf-457a-8629-e9567bd5853a" name="PaySlip" linkedPackageId="908ef07c-6505-402e-9c58-66f25d7e807f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="a251eaff-f9e0-4ef5-a3c4-b3a81f501711">
+      <elementDefinition Id="325d291a-3653-4138-a7ac-47501bd29f76" />
+      <body>A link to encrypted zip file sent to user (ePortal)</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="e8eb9b8e-2a24-450b-a62c-b5430d51136c" LastKnownName="ActivityFinal1" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="178e1ac9-5ec9-4b5f-a094-fa80f958beb5">
+      <profileInstance Id="f35833f1-60df-4e28-9f20-2acae897fd19" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8366a72c-026c-45bd-95d8-d0c7561b261a">
+      <profileInstance Id="c2b888bc-4cdb-40f0-9172-c68cce49f50b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="86a9720b-1dca-4371-af24-04e29910226e" name="PaySlip" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="bff8b90e-f3d0-4067-960a-d7f721c647b3" />
+        <nodes>
+          <sendSignalAction Id="88b7b421-9c23-4d63-9e50-8796b222dbd8" name="Print PaySlip" isLeaf="false">
+            <elementDefinition Id="276c6eab-68d4-4916-9511-ad7ec59d3495" />
+          </sendSignalAction>
+          <acceptEventAction Id="14c9c296-456b-4d07-b825-b820f526c440" name="PaySlip Report Settings" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="4cec3737-a7da-46d8-837e-4fdd635f9142" />
+          </acceptEventAction>
+          <sendSignalAction Id="1a3c17fb-12f0-4c9e-ab2b-3017056eedbf" name="Create HTML based on Current Schema (css dependent)" isLeaf="false">
+            <elementDefinition Id="f8095f51-cfe7-41ee-91af-91e6445bc56e" />
+            <pins>
+              <actionHasOutputsInternal>
+                <outputPin Id="10063bee-c1d7-46fb-8da2-5ab482451a8f" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="9ae870dc-abbc-4c76-83b9-6a42b0618a8b" />
+                  <objectFlowTargets>
+                    <objectFlow Id="185937de-3290-4653-b538-ebb13ec49d70" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="e01c360f-75f3-4d91-8c59-9028341f675b" LastKnownName="Input1" />
+                      <elementDefinition Id="bf354a11-cfa7-4b59-ba15-3b8b8dfb5f69" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="dde41463-9e63-49ff-a78f-30e693347fcf" name="2147483647" value="2147483647">
+                      <elementDefinition Id="79560acc-0ed2-47fc-bb85-353a279a2470" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction Id="52600a97-1ecc-44b5-858e-d25dd185c432" name="Create PDF based on HTML (no password)" isLeaf="false">
+            <elementDefinition Id="c206c755-8606-4e80-9d6c-b03bc2bb01b7" />
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin Id="e01c360f-75f3-4d91-8c59-9028341f675b" name="Input1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="23dd61c2-ec6f-43f6-b6ad-ecb76be2d541" />
+                  <upperBound>
+                    <literalInteger Id="2e4b3a7d-3972-4d54-bd59-15e6460d840c" name="2147483647" value="2147483647">
+                      <elementDefinition Id="1a36a1da-df42-4e6e-83cb-eeb8cc1e6d22" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin Id="e183662d-30a2-4d61-8ed1-767a10f743e9" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="06f5db40-5c98-49b7-bcbd-9991840d7d04" />
+                  <objectFlowTargets>
+                    <objectFlow Id="6879796f-e6d6-4068-bdb2-e42f9d94567d" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="c896bf11-da97-4ba5-b7a9-5a4d13c9b899" LastKnownName="Input1" />
+                      <elementDefinition Id="c575c080-84b7-40e9-a39b-127a2e1fe0fd" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="08184478-cbcc-4930-8064-244543ef8511" name="2147483647" value="2147483647">
+                      <elementDefinition Id="dce7d6aa-ed7e-4c2c-b42d-ca1b6421a322" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction Id="f5b9bc77-ebb2-4915-995e-4b873d9cfde9" name="Create zip file, add pdf file and encrypt using user password from HRMS DB" isLeaf="false">
+            <elementDefinition Id="3109548c-e662-4314-973c-2c16d10e3d78" />
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin Id="c896bf11-da97-4ba5-b7a9-5a4d13c9b899" name="Input1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="932c4534-4b83-4e03-834b-ba1cb57fe1e9" />
+                  <upperBound>
+                    <literalInteger Id="fb7ee378-f584-4ce6-b49b-af45b51f431c" name="2147483647" value="2147483647">
+                      <elementDefinition Id="11f929de-baee-4dbc-86cc-6dddc41d881f" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin Id="5b979a9a-fc2d-4cce-a948-0446907ab516" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="7960658c-6eb7-4f5e-8c60-3d15ae483f38" />
+                  <objectFlowTargets>
+                    <objectFlow Id="605eba1b-726d-4e24-bfc9-5ed760dce5c0" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <activityFinalNodeMoniker Id="e8eb9b8e-2a24-450b-a62c-b5430d51136c" LastKnownName="ActivityFinal1" />
+                      <elementDefinition Id="161808e7-bcda-48d0-9692-7245ccfeed26" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="5699dbf1-aaef-4aea-a834-9bf7466aedf3" name="2147483647" value="2147483647">
+                      <elementDefinition Id="a6f2fe6e-1e38-424a-9cba-c36416096197" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <activityFinalNode Id="e8eb9b8e-2a24-450b-a62c-b5430d51136c" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="d8f858e7-6c46-4db6-bd80-baabb871da43" />
+          </activityFinalNode>
+          <sendSignalAction Id="6bc7b079-d0da-4709-a3a1-0ca67645efbf" name="SSRS runs Subscription and creates PaySlip pdf Reports in Shared folder" isLeaf="false">
+            <elementDefinition Id="a9419f32-c6bd-482d-8650-c0bbcb6d012f" />
+          </sendSignalAction>
+          <acceptEventAction Id="8d1299ca-60e4-41d9-a6fd-8fb16517534c" name="Windows Task Runs, creates encrypted zip files and email them" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="32ad9cf8-1709-40ad-aa47-9b27464747f1" />
+          </acceptEventAction>
+          <sendSignalAction Id="138b095d-ceb0-4b71-867f-67826c1d59db" name="Unencrypted PDF files deleted from Shared Folder and replaced with encrypted zip files" isLeaf="false">
+            <elementDefinition Id="c6a01876-512e-463e-8b90-7274984648db" />
+            <pins>
+              <actionHasOutputsInternal>
+                <outputPin Id="622d5d09-bff7-42ae-ba5e-ed28d633854d" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="740a74da-1914-4279-8b69-42d4a554e3be" />
+                  <objectFlowTargets>
+                    <objectFlow Id="a6df7306-7314-41a1-bbe5-9f4abd8d1903" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="3abb49d3-9326-4d80-bdad-bbf392d437ac" LastKnownName="Input1" />
+                      <elementDefinition Id="3de649db-8973-463a-9d53-d2ee4f9e0b43" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="09a72617-93b5-4fe5-bc14-0a5722576b80" name="2147483647" value="2147483647">
+                      <elementDefinition Id="3216a23b-fb99-4ef7-b1bd-81a303cd7fb4" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction Id="c9161135-b944-4800-b14f-3c16334b7de1" name="Encrypted zip file copied to HRMS WEB server" isLeaf="false">
+            <elementDefinition Id="eed3fd9a-94f5-4562-9ea9-87f06209fb82" />
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin Id="3abb49d3-9326-4d80-bdad-bbf392d437ac" name="Input1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="85dc3bee-bbd6-4a31-ac8e-49db25b649cb" />
+                  <upperBound>
+                    <literalInteger Id="13fe30b2-37e3-4b66-bd05-725b87021c93" name="2147483647" value="2147483647">
+                      <elementDefinition Id="5a1d3441-60f8-4cb0-a250-d04943e44734" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin Id="831f78c7-6f3b-4c0e-b3a5-4148df133f7c" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="01bd4380-45a8-44ac-b6c4-b8d75b240c95" />
+                  <objectFlowTargets>
+                    <objectFlow Id="1cad3fb6-46bb-417c-8cb0-1f0ad2ba6bbd" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <inputPinMoniker Id="a4f73dbe-439e-4fd9-b78b-8377e3073fb5" LastKnownName="Input1" />
+                      <elementDefinition Id="3db5b191-dbbd-4356-9dc1-05eb62729f56" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="6000cd4d-2ee1-4ac9-8f6d-93ae0a8aeace" name="2147483647" value="2147483647">
+                      <elementDefinition Id="53ffc076-05c3-4992-9d6f-ca2b3003ba13" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <sendSignalAction Id="a2be08cd-5e53-411a-866c-40d68feadae3" name="A link to encrypted zip file sent to user (ePortal)" isLeaf="false">
+            <elementDefinition Id="fdbf0692-afd4-4b9b-8fd2-e31b30f7436c" />
+            <pins>
+              <sendSignalActionHasTarget>
+                <inputPin Id="a4f73dbe-439e-4fd9-b78b-8377e3073fb5" name="Input1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="4bc35623-3075-4898-8ea3-348e8d21437a" />
+                  <upperBound>
+                    <literalInteger Id="faba6755-6221-4a2e-b710-12901571dedd" name="2147483647" value="2147483647">
+                      <elementDefinition Id="82b74d05-6230-4d41-bd09-f7208b3c22b4" />
+                    </literalInteger>
+                  </upperBound>
+                </inputPin>
+              </sendSignalActionHasTarget>
+              <actionHasOutputsInternal>
+                <outputPin Id="ad5fa1d7-2f97-4c27-9336-e646c0730d2e" name="Output1" isLeaf="false" ordering="Unordered" isControlType="false" isControl="false">
+                  <elementDefinition Id="6dc81d0d-2aa9-4e59-b740-b3fc42091c33" />
+                  <objectFlowTargets>
+                    <objectFlow Id="2cdfaea6-8f0d-4ee8-9350-a7395a2de68f" isLeaf="false" isMulticast="false" isMultireceive="false">
+                      <activityFinalNodeMoniker Id="1db2a754-316c-44c7-9e63-98dbb704e327" LastKnownName="ActivityFinal11" />
+                      <elementDefinition Id="3b1a3f5a-7892-4eb0-9cf2-93175d1dea01" />
+                    </objectFlow>
+                  </objectFlowTargets>
+                  <upperBound>
+                    <literalInteger Id="5b4c62f7-1395-4039-86f0-baff05860df2" name="2147483647" value="2147483647">
+                      <elementDefinition Id="ccc6d4cc-5d0b-44cb-a480-aeb4e06098ee" />
+                    </literalInteger>
+                  </upperBound>
+                </outputPin>
+              </actionHasOutputsInternal>
+            </pins>
+          </sendSignalAction>
+          <activityFinalNode Id="1db2a754-316c-44c7-9e63-98dbb704e327" name="ActivityFinal11" isLeaf="false">
+            <elementDefinition Id="3039ea62-ee7d-4e74-8748-4428a93ad1c1" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="908ef07c-6505-402e-9c58-66f25d7e807f" name="ModelingPaySlip">
+    <elementDefinition Id="1df2097b-b5d7-4149-9867-2728e5fbd78c" />
+  </package>
+</activityRootModel>
