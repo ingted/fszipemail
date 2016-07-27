@@ -8,12 +8,10 @@ open FSharp.Data
 
 type Settings = AppSettings<"App.config">
 // open System.Configuration
-let sender = Settings.Sender
+let InputDir = Settings.InputDir
+let OutputDir = Settings.OutputDir
 let isSSL = Settings.SSL
-let server = Settings.Smtpserver
-let port = Settings.Port
-let username = Settings.Username
-let password : string = Settings.Password
+
 let attachmentName = Settings.AttachmentName
 
 [<Literal>]
@@ -32,6 +30,19 @@ let getUserPassword (empcode : string) :string =
     
     result
 
+type EmailSettings = {smtpserver:string; smtpport:int; smtpsender:string; smtpuser : string; smtppassword : string}
+
+let getEmailSettings = 
+    let mutable result =  {smtpserver = ""; smtpport = 0; smtpsender = ""; smtpuser = ""; smtppassword = "" }
+    do
+        use cmd = new SqlCommandProvider<"SELECT TOP(1) smtpserver, smtpport, smtpsender, smtpuser, smtppassword from control",connectionString>()
+        
+        let controls = cmd.Execute()
+
+        for control in controls do
+            result <- {smtpserver = control.smtpserver; smtpport = System.Int32.Parse(control.smtpport); smtpsender = control.smtpsender; smtpuser = control.smtpuser; smtppassword = control.smtppassword }
+
+    result
 
 let getEmailAddress (empcode : string) :string = 
     let mutable result = ""
@@ -46,13 +57,15 @@ let getEmailAddress (empcode : string) :string =
     result
 
 let sendMailMessage( email :string, name :string, topic :string, msg :string, filename :string) =
+
+    let emailSettings = getEmailSettings
     let msg = 
         new MailMessage(
-            sender, email, topic, "Dear " + name + ", <br/><br/>\r\n\r\n" + msg)
+            emailSettings.smtpsender, email, topic, "Dear " + name + ", <br/><br/>\r\n\r\n" + msg)
     msg.IsBodyHtml <- true
-    let client = new SmtpClient(server, port)
+    let client = new SmtpClient(emailSettings.smtpserver, emailSettings.smtpport)
     client.EnableSsl <- isSSL
-    client.Credentials <- System.Net.NetworkCredential(username, password)
+    client.Credentials <- System.Net.NetworkCredential(emailSettings.smtpuser, emailSettings.smtppassword)
     client.SendCompleted |> Observable.add(fun e -> 
         let msg = e.UserState :?> MailMessage
         if e.Cancelled then
@@ -105,5 +118,5 @@ let main argv =
     //let path = Directory.GetCurrentDirectory()
 
     //Console.WriteLine("The current directory is {0}", path)
-    zipFiles( "E:/T5PSVN/branches/ZipDir/Test/TestOut", "E:/T5PSVN/branches/ZipDir/Test/Test01")
+    zipFiles( OutputDir, InputDir)
     0 // return an integer exit code
